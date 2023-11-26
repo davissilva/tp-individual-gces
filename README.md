@@ -1,2 +1,4 @@
-# tp-individual-gces
-Trabalho individual de Gestão de Configuração de Software 2023-2
+# PUC-GCES-PY
+Material para o trabalho individual da disciplina de GERÊNCIA DE CONFIGURAÇÃO E EVOLUÇÃO DE SOFTWARE.
+
+## Essa versão é em PYTHON
