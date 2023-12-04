@@ -14,6 +14,21 @@ services:
     networks:
       - puc-gces-py
 
+  services:
+    web:
+      build: .
+      ports:
+        - "5000:5000"
+      volumes:
+        - ./app:/app
+      depends_on:
+        - redis
+      networks:
+        - puc-gces-py
+
+  redis:
+    image: "redis:alpine"
+
 networks: 
     puc-gces-py:
       driver: bridge

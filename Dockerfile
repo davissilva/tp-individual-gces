@@ -1,8 +1,20 @@
-# Define a imagem base
-FROM mongo
+# Imagem base
+FROM python:3.9
 
-# Copia o arquivo JavaScript para o diretório correto no contêiner
-COPY script.js /docker-entrypoint-initdb.d/
+# Define o diretório de trabalho dentro do contêiner
+WORKDIR /app
 
-# Define o comando a ser executado quando o contêiner for iniciado
-CMD ["mongod"]
+# Copia o arquivo requirements.txt para o diretório de trabalho
+COPY requirements.txt .
+
+# Instala as dependências
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copie todo o conteúdo local para o diretório de trabalho
+COPY . .
+
+# Exponha a porta em que a aplicação será executada (ajuste conforme necessário)
+EXPOSE 5000
+
+# Comando para executar a aplicação quando o contêiner for iniciado
+CMD ["python", "app.py"]
